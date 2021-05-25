@@ -2,5 +2,25 @@
 @import 'variables';
 
 body {
-  background-color: $favColor;
+  background-color: $bg-color;
+}
+
+.nav-bar {
+  background-color: $nav-color !important;
+}
+
+.nav-link {
+  color: $bg-color !important
+}
+
+.home-text {
+  color: $light-color !important;
+}
+
+.home-component {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
