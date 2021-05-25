@@ -13,7 +13,9 @@ export default function Technologies() {
         </div>
         <div>
           <p>GIT</p>
-          <img src="https://user-images.githubusercontent.com/76187279/119210487-ee7a5f00-ba71-11eb-9794-89ce77d996be.png" alt="git icon"/>
+          <img style={{
+            height: '45px'
+          }} src="https://user-images.githubusercontent.com/76187279/119210487-ee7a5f00-ba71-11eb-9794-89ce77d996be.png" alt="git icon"/>
         </div>
         <div>
           <p>GITHUB</p>
@@ -21,7 +23,9 @@ export default function Technologies() {
         </div>
         <div>
           <p>VS CODE</p>
-          <img src="https://user-images.githubusercontent.com/76187279/119210485-ec180500-ba71-11eb-8631-0a3493bb66f8.png" alt="VS Code icon"/>
+          <img style={{
+            height: '45px'
+          }} src="https://user-images.githubusercontent.com/76187279/119210485-ec180500-ba71-11eb-8631-0a3493bb66f8.png" alt="VS Code icon"/>
         </div>
     </div>
   );
