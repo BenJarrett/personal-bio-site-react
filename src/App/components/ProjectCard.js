@@ -32,6 +32,7 @@ const ProjectCard = ({
       default:
         console.warn('nothing selected');
     }
+    // console.warn(firebaseKey);
   };
 
   return (
@@ -54,7 +55,7 @@ const ProjectCard = ({
 };
 
 ProjectCard.propTypes = {
-  // firebaseKey: PropTypes.string.isRequired,
+  firebaseKey: PropTypes.string,
   githubUrl: PropTypes.string,
   screenshot: PropTypes.string,
   technologiesUsed: PropTypes.string,

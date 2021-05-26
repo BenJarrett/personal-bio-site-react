@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
-import { BrowserRouter as Router } from 'react-router-dom';
-import NavBar from './components/NavBar';
 import Routes from '../helpers/Routes';
 import './App.scss';
-import getProjects from '../helpers/data/projects';
+import NavBar from './components/NavBar';
+import { getProjects } from '../helpers/data/projectsData';
 
 function App() {
-  const [projects, setProjects] = useState([]);
   const [admin, setAdmin] = useState(null);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
@@ -21,19 +20,15 @@ function App() {
       }
     });
   }, []);
+
   return (
-    <div className='App'>
-      <Router>
-        <NavBar
-        admin={admin}
-        />
-        <Routes
-        admin={admin}
-        projects={projects}
-        setProjects={setProjects}
-        />
-      </Router>
-    </div>
+    <>
+      <NavBar admin={admin} />
+      <Routes
+       projects={projects}
+       setProjects={setProjects}
+      />
+      </>
   );
 }
 

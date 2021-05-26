@@ -1,48 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ProjectCard from '../App/components/ProjectCard';
+import ProjectsCard from '../App/components/ProjectCard';
 
 function Projects({
-  projects,
-  setProjects,
   firebaseKey,
   githubUrl,
   screenshot,
   technologiesUsed,
   title,
   url,
-  admin
+  projects,
+  setProjects,
 }) {
   return (
-    <>
-    <h2> Projects </h2>
-      <div className="card-container">
-          <ProjectCard
-            firebaseKey={firebaseKey}
-            githubUrl={githubUrl}
-            screenshot={screenshot}
-            technologiesUsed={technologiesUsed}
-            title={title}
-            url={url}
-            projects={projects}
-            admin={admin}
-            setProjects={setProjects}
-          />
-      </div>
-    </>
+    <div className="this">
+    <hr/>
+    <h1>Projects</h1>
+       <ProjectsCard
+       firebaseKey={firebaseKey}
+       githubUrl ={githubUrl}
+       screenshot={screenshot}
+       technologiesUsed={technologiesUsed}
+       title={title}
+       url={url}
+       setProjects={setProjects}
+       projects={projects}
+       />
+     </div>
   );
 }
 
 Projects.propTypes = {
-  projects: PropTypes.array,
-  setProjects: PropTypes.func,
   firebaseKey: PropTypes.string,
   githubUrl: PropTypes.string,
   screenshot: PropTypes.string,
   technologiesUsed: PropTypes.string,
   title: PropTypes.string,
   url: PropTypes.string,
-  admin: PropTypes.any
+  projects: PropTypes.array,
+  setProjects: PropTypes.func
 };
 
 export default Projects;

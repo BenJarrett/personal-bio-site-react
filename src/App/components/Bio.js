@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Bio() {
+export default function AboutMe() {
   return (
     <div>
         <p>
