@@ -26,16 +26,16 @@ const NavBar = ({ user }) => {
               <Link className="nav-link" to='/'>Home</Link>
             </NavItem>
             <NavItem>
-              <Link className="nav-link" to='/bio'>BIO</Link>
+              <Link className="nav-link" to='/bio'>Bio</Link>
             </NavItem>
             <NavItem>
-              <Link className="nav-link" to='/projects'>PROJECTS</Link>
+              <Link className="nav-link" to='/projects'>projects</Link>
             </NavItem>
             <NavItem>
-              <Link className="nav-link" to='/technologies'>TECHNOLOGIES</Link>
+              <Link className="nav-link" to='/technologies'>Technologies</Link>
             </NavItem>
             <NavItem>
-              <Link className="nav-link"to='/contact'>CONTACT INFORMATION</Link>
+              <Link className="nav-link"to='/contact'>Contact Me</Link>
             </NavItem>
           </Nav>
           <NavItem>

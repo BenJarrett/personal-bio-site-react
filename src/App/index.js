@@ -4,34 +4,34 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Routes from '../helpers/Routes';
 import './App.scss';
+import getProjects from '../helpers/data/projects';
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [projects, setProjects] = useState([]);
+  const [admin, setAdmin] = useState(null);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
-      console.warn(authed);
-      if (authed) {
-        const userObj = {
-          fullName: authed.displayName,
-          profileImage: authed.photoURL,
-          uid: authed.uid,
-          user: authed.email.split('@')[0]
-        };
-        setUser(userObj);
-      } else if (user || user === null) {
-        setUser(false);
+      if (authed && (authed.uid === process.env.REACT_APP_ADMIN_UID)) {
+        setAdmin(true);
+        getProjects().then((projectsArray) => setProjects(projectsArray));
+      } else if (admin || admin === null) {
+        setAdmin(false);
+        getProjects().then((projectsArray) => setProjects(projectsArray));
       }
     });
   }, []);
-
   return (
     <div className='App'>
       <Router>
         <NavBar
-        // user={user}
+        admin={admin}
         />
-        <Routes/>
+        <Routes
+        admin={admin}
+        projects={projects}
+        setProjects={setProjects}
+        />
       </Router>
     </div>
   );

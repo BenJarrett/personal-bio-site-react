@@ -1,14 +1,37 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Bio from '../App/components/Bio';
 import Contact from '../App/components/Contact';
 import Home from '../App/components/Home';
 import Technologies from '../App/components/Technologies';
+import Projects from '../views/Projects';
 // import Contact from '../components/Contact';
 // import Home from '../components/Home';
 // import Technologies from '../components/Technologies';
 
-export default function Routes() {
+const PrivateRoute = ({ component: Component, user, ...rest }) => {
+  const routeChecker = (taco) => (user
+    ? (<Component {...taco} user={user} />)
+    : (<Redirect to={{ pathname: '/', state: { from: taco.location } }} />));
+  return <Route {...rest} render={(props) => routeChecker(props)} />;
+};
+
+PrivateRoute.propTypes = {
+  component: PropTypes.func,
+  user: PropTypes.any
+};
+export default function Routes(
+  admin,
+  projects,
+  setProjects,
+  firebaseKey,
+  githubUrl,
+  screenshot,
+  technologiesUsed,
+  title,
+  url,
+) {
   return (
     <div>
       <Switch>
@@ -16,6 +39,18 @@ export default function Routes() {
         component={Home}/>
         <Route
         exact path='/projects'
+        admin={admin}
+        component={() => <Projects
+        projects={projects}
+        setProjects={setProjects}
+        firebaseKey={firebaseKey}
+        githubUrl={githubUrl}
+        screenshot={screenshot}
+        technologiesUsed={technologiesUsed}
+        title={title}
+        url={url}
+        />}
+
         />
          <Route
         exact path='/bio'
@@ -33,3 +68,15 @@ export default function Routes() {
     </div>
   );
 }
+
+Routes.propTypes = {
+  projects: PropTypes.array,
+  setProjects: PropTypes.func,
+  firebaseKey: PropTypes.string,
+  githubUrl: PropTypes.string,
+  screenshot: PropTypes.string,
+  technologiesUsed: PropTypes.string,
+  title: PropTypes.string,
+  url: PropTypes.string,
+  admin: PropTypes.any
+};

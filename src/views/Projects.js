@@ -1,30 +1,48 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import
+import React from 'react';
+import PropTypes from 'prop-types';
+import ProjectCard from '../App/components/ProjectCard';
 
-// function Players({ players, setPlayers }) {
-//   return (
-//     <>
-//     <h2> Team Roster </h2>
-//       <div className="card-container">
-//         {players.map((playerInfo) => (
-//           <PlayerCard
-//             key={playerInfo.firebaseKey}
-//             firebaseKey={playerInfo.firebaseKey}
-//             name={playerInfo.name}
-//             position={playerInfo.position}
-//             imageURL={playerInfo.imageURL}
-//             setPlayers={setPlayers}
-//           />
-//         ))}
-//       </div>
-//     </>
-//   );
-// }
+function Projects({
+  projects,
+  setProjects,
+  firebaseKey,
+  githubUrl,
+  screenshot,
+  technologiesUsed,
+  title,
+  url,
+  admin
+}) {
+  return (
+    <>
+    <h2> Projects </h2>
+      <div className="card-container">
+          <ProjectCard
+            firebaseKey={firebaseKey}
+            githubUrl={githubUrl}
+            screenshot={screenshot}
+            technologiesUsed={technologiesUsed}
+            title={title}
+            url={url}
+            projects={projects}
+            admin={admin}
+            setProjects={setProjects}
+          />
+      </div>
+    </>
+  );
+}
 
-// Players.propTypes = {
-//   players: PropTypes.array.isRequired,
-//   setPlayers: PropTypes.func.isRequired
-// };
+Projects.propTypes = {
+  projects: PropTypes.array,
+  setProjects: PropTypes.func,
+  firebaseKey: PropTypes.string,
+  githubUrl: PropTypes.string,
+  screenshot: PropTypes.string,
+  technologiesUsed: PropTypes.string,
+  title: PropTypes.string,
+  url: PropTypes.string,
+  admin: PropTypes.any
+};
 
-// export default Players;
+export default Projects;
