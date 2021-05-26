@@ -28,7 +28,7 @@ const ProjectsCard = ({
         setEditing((prevState) => !prevState);
         break;
       default:
-        console.warn('nope');
+        console.warn('No Projects');
     }
   };
   return (
