@@ -1,7 +1,7 @@
 import React from 'react';
+import firebase from 'firebase';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import firebase from 'firebase';
 import firebaseConfig from './helpers/apiKeys';
 import App from './App';
 import reportWebVitals from './reportWebVitals';

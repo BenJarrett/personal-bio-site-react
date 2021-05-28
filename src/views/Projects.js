@@ -9,8 +9,9 @@ function Projects({
   technologiesUsed,
   title,
   url,
-  projects,
+  project,
   setProjects,
+  projects
 }) {
   return (
     <div className="this">
@@ -25,6 +26,7 @@ function Projects({
        url={url}
        setProjects={setProjects}
        projects={projects}
+       {...project}
        />
      </div>
   );
@@ -37,8 +39,9 @@ Projects.propTypes = {
   technologiesUsed: PropTypes.string,
   title: PropTypes.string,
   url: PropTypes.string,
-  projects: PropTypes.array,
-  setProjects: PropTypes.func
+  project: PropTypes.array,
+  setProjects: PropTypes.func,
+  projects: PropTypes.array
 };
 
 export default Projects;

@@ -23,6 +23,7 @@ function App() {
 
   return (
     <>
+    console.warn(getProjects)
       <NavBar admin={admin} />
       <Routes
        projects={projects}

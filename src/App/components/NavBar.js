@@ -6,7 +6,7 @@ import {
   NavbarToggler,
   Nav,
   NavItem,
-  Button
+  Button,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { signInUser, signOutUser } from '../../helpers/auth';

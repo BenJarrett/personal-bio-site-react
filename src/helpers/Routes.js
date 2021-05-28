@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Bio from '../App/components/Bio';
 import Contact from '../App/components/Contact';
@@ -10,17 +10,17 @@ import Projects from '../views/Projects';
 // import Home from '../components/Home';
 // import Technologies from '../components/Technologies';
 
-const PrivateRoute = ({ component: Component, user, ...rest }) => {
-  const routeChecker = (taco) => (user
-    ? (<Component {...taco} user={user} />)
-    : (<Redirect to={{ pathname: '/', state: { from: taco.location } }} />));
-  return <Route {...rest} render={(props) => routeChecker(props)} />;
-};
+// const PrivateRoute = ({ component: Component, user, ...rest }) => {
+//   const routeChecker = (taco) => (user
+//     ? (<Component {...taco} user={user} />)
+//     : (<Redirect to={{ pathname: '/', state: { from: taco.location } }} />));
+//   return <Route {...rest} render={(props) => routeChecker(props)} />;
+// };
 
-PrivateRoute.propTypes = {
-  component: PropTypes.func,
-  user: PropTypes.any
-};
+// PrivateRoute.propTypes = {
+//   component: PropTypes.func,
+//   user: PropTypes.any
+// };
 export default function Routes(
   admin,
   projects,
@@ -37,11 +37,10 @@ export default function Routes(
       <Switch>
         <Route exact path='/'
         component={Home}/>
+
         <Route
         exact path='/projects'
-        admin={admin}
         component={() => <Projects
-        projects={projects}
         setProjects={setProjects}
         firebaseKey={firebaseKey}
         githubUrl={githubUrl}
@@ -49,9 +48,11 @@ export default function Routes(
         technologiesUsed={technologiesUsed}
         title={title}
         url={url}
+        admin={admin}
+        projects={projects}
         />}
-
         />
+
          <Route
         exact path='/bio'
         component={Bio}
