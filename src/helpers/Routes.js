@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import Projects from '../views/Projects';
 import Bio from '../App/components/Bio';
 import Contact from '../App/components/Contact';
-import Home from '../App/components/Home';
 import Technologies from '../App/components/Technologies';
+import HomePage from '../views/Home';
 // import Contact from '../components/Contact';
 // import Home from '../components/Home';
 // import Technologies from '../components/Technologies';
@@ -25,7 +25,8 @@ export default function Routes({
     <div>
       <Switch>
         <Route exact path='/'
-        component={Home}/>
+        component={() => <HomePage
+        />} />
         <Route
         exact path='/projects'
         admin={admin}

@@ -1,13 +1,20 @@
 import React from 'react';
-import NavBar from '../App/components/NavBar';
+import AboutMe from '../App/components/Bio';
+import Contact from '../App/components/Contact';
+import Home from '../App/components/Home';
+// import NavBar from '../App/components/NavBar';
+import Tech from '../App/components/Technologies';
 
-function Home() {
+function HomePage() {
   return (
     <>
-    <NavBar>
-    </NavBar>
+    <Home />
+    <AboutMe/>
+    <Tech />
+    <Contact />
+
     </>
   );
 }
 
-export default Home;
+export default HomePage;
