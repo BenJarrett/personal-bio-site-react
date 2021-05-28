@@ -6,12 +6,12 @@ import Bio from '../App/components/Bio';
 import Contact from '../App/components/Contact';
 import Technologies from '../App/components/Technologies';
 import HomePage from '../views/Home';
+import AddProject from '../views/AddProject';
 // import Contact from '../components/Contact';
 // import Home from '../components/Home';
 // import Technologies from '../components/Technologies';
 
 export default function Routes({
-  admin,
   projects,
   setProjects,
   firebaseKey,
@@ -20,12 +20,13 @@ export default function Routes({
   technologiesUsed,
   title,
   url,
+  admin
 }) {
   return (
     <div>
       <Switch>
         <Route exact path='/'
-        component={() => <HomePage
+        component={() => <HomePage admin={admin}
         />} />
         <Route
         exact path='/projects'
@@ -54,6 +55,17 @@ export default function Routes({
         exact path='/contact'
         component={Contact}
         />
+        <Route exact path='/add-project' component={() => <AddProject
+        setProjects={setProjects}
+        firebaseKey={firebaseKey}
+        screenshot={screenshot}
+        title={title}
+        technologiesUsed={technologiesUsed}
+        url={url}
+        admin={admin}
+        githubUrl={githubUrl}
+        projects={projects}/>}
+      />
       </Switch>
     </div>
   );

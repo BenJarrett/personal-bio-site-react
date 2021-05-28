@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
-import Routes from '../helpers/Routes';
-import './App.scss';
-import NavBar from './components/NavBar';
 import { getProjects } from '../helpers/data/projectsData';
+import Routes from '../helpers/Routes';
+import NavBar from './components/NavBar';
 
 function App() {
   const [admin, setAdmin] = useState(null);
   const [projects, setProjects] = useState([]);
-
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
       if (authed && (authed.uid === process.env.REACT_APP_ADMIN_UID)) {
@@ -20,16 +18,18 @@ function App() {
       }
     });
   }, []);
-
+  console.warn(admin);
   return (
     <>
-      <NavBar admin={admin} />
+      <div id="nav-styles">
+        <NavBar admin={admin} />
+      </div>
       <Routes
-       projects={projects}
-       setProjects={setProjects}
+      admin={admin}
+      projects={projects}
+      setProjects={setProjects}
       />
-      </>
+    </>
   );
 }
-
 export default App;
