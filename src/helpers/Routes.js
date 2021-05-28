@@ -1,27 +1,16 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Projects from '../views/Projects';
 import Bio from '../App/components/Bio';
 import Contact from '../App/components/Contact';
 import Home from '../App/components/Home';
 import Technologies from '../App/components/Technologies';
-import Projects from '../views/Projects';
 // import Contact from '../components/Contact';
 // import Home from '../components/Home';
 // import Technologies from '../components/Technologies';
 
-const PrivateRoute = ({ component: Component, user, ...rest }) => {
-  const routeChecker = (taco) => (user
-    ? (<Component {...taco} user={user} />)
-    : (<Redirect to={{ pathname: '/', state: { from: taco.location } }} />));
-  return <Route {...rest} render={(props) => routeChecker(props)} />;
-};
-
-PrivateRoute.propTypes = {
-  component: PropTypes.func,
-  user: PropTypes.any
-};
-export default function Routes(
+export default function Routes({
   admin,
   projects,
   setProjects,
@@ -31,7 +20,7 @@ export default function Routes(
   technologiesUsed,
   title,
   url,
-) {
+}) {
   return (
     <div>
       <Switch>
