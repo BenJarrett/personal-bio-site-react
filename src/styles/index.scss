@@ -6,21 +6,83 @@ body {
 }
 
 .nav-bar {
-  background-color: $nav-color !important;
+  background-color: $nav-color;
 }
 
 .nav-link {
-  color: $bg-color !important
+  color: #252323;
 }
 
 .home-text {
-  color: $light-color !important;
+  
+  color: #252323;
 }
 
 .home-component {
   display: flex; 
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 90vh;
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/personal-bio-site-d4958.appspot.com/o/ben-bg.jpg?alt=media&token=b275fd6e-6110-4a1f-b8e3-299fefc01706");
+  background-position: center;
+  background-size: cover;
+  text-align: right;
+  padding: 0px 50px;
+}
+
+.tech-styles {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: auto;
+  background-color: #252323;
+  img {
+    width: 120px;
+  }
+  padding: 20px 60px 45px 60px
+}
+
+.bio-styles {
+  margin: auto;
+}
+
+.contact-styles {
+  width: 1000px;
+  margin: auto;
+  text-align: center;
+  padding: 70px 0px;
+}
+
+.tech-container {
+  background-color: #252323;
+  color: #F5F1ED;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.bio-image {
+  width: 200px;
+  border-radius: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+.bio-container {
+  padding: 70px 0px;
+}
+
+.card-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.card {
+  margin: 30px;
+  width: 350px;
+}
+
+.card-link {
+  margin-bottom: 10px;
+  color: #70798C
 }

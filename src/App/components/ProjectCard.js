@@ -4,7 +4,9 @@ import {
   Card,
   Button,
   CardTitle,
-  CardText
+  CardLink,
+  CardBody,
+  CardSubtitle
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { deleteProject } from '../../helpers/data/projectsData';
@@ -34,8 +36,8 @@ const ProjectsCard = ({
   };
   const editView = (fbKey) => (
     <div>
-      <Button style={{ backgroundColor: '#ffa64d' }} onClick={() => handleClick(fbKey, 'delete')}>Delete Project</Button>
-      <Button style={{ backgroundColor: '#004d1a' }} onClick={() => handleClick(fbKey, 'edit')}>
+      <Button style={{ backgroundColor: '#252323', margin: '10px', textAlign: 'left' }} onClick={() => handleClick(fbKey, 'delete')}>Delete Project</Button>
+      <Button style={{ backgroundColor: '#70798C' }} onClick={() => handleClick(fbKey, 'edit')}>
         {editing ? 'Close Form' : 'Edit Project'}
       </Button>
     </div>
@@ -43,18 +45,14 @@ const ProjectsCard = ({
   return (
     projects.map((projectInfo) => (
         <Card
-        key={projectInfo.firebaseKey}
-        style={{
-          width: '20rem',
-          flex: 'initial',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-        }} body>
+        key={projectInfo.firebaseKey}>
+          <CardBody>
          <CardTitle tag="h5">Project Name: {projectInfo.title}</CardTitle>
-         <CardText>url: {projectInfo.url}</CardText>
-         <CardText>Github Url: {projectInfo.githubUrl}</CardText>
-         <CardText>Technologies Used: {projectInfo.technologiesUsed}</CardText>
-         <img style={{ width: '16rem' }} src={projectInfo.screenshot} className="photo" alt="Card image cap" />
+         <CardSubtitle tag="h6" className="mb-2 text-muted">Technologies Used: {projectInfo.technologiesUsed}</CardSubtitle>
+         </CardBody>
+         <img width="100%" src={projectInfo.screenshot} className="photo" alt="Card image cap" />
+         <CardBody>
+         <CardLink className="url-style" target="_blank" href={projectInfo.url}>View Project</CardLink>
          { admin && editView(projectInfo.firebaseKey) }
          {
          editing && <ProjectsForm
@@ -68,6 +66,7 @@ const ProjectsCard = ({
          url={projectInfo.url}
          />
          }
+         </CardBody>
          </Card>
     ))
   );

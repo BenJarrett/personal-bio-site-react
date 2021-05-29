@@ -6,7 +6,8 @@ import {
   NavbarToggler,
   Nav,
   NavItem,
-  Button
+  Button,
+  NavbarBrand
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { signInUser, signOutUser } from '../../helpers/auth';
@@ -16,22 +17,24 @@ const NavBar = ({ admin }) => {
 
   const toggle = () => setIsOpen(!isOpen);
 
-  const authenticated = () => {
+  const authenticated = () => (
   <>
    <NavItem>
-    <Link className="nav-link" to='/add-projects'>Add New Project</Link>
+    <Link className="nav-link" to='/add-project'>Add New Project</Link>
    </NavItem>
-  </>;
-  };
+  </>
+  );
   console.warn(admin);
   return (
-<div>
-      <Navbar className="nav-bar" color="light" light expand="md">
+            <div>
+      <Navbar className="nav-bar" light expand="md">
+      <NavbarBrand href="/">
+      </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
-          { admin !== null && authenticated()}
-            <NavItem>
+          { admin && authenticated()}
+          <NavItem>
               <Link className="nav-link" to="/">Home</Link>
             </NavItem>
             <NavItem>
@@ -51,8 +54,8 @@ const NavBar = ({ admin }) => {
               && <NavItem>
                 {
                   admin
-                    ? <Button color='danger' onClick={signOutUser}>Log Out</Button>
-                    : <Button color='danger' onClick={signInUser}>Sign In</Button>
+                    ? <Button color='#252323' onClick={signOutUser}>Log Out</Button>
+                    : <Button color='#252323' onClick={signInUser}>Sign In</Button>
                 }
               </NavItem>
             }

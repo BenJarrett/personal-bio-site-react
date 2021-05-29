@@ -15,8 +15,8 @@ function Projects({
 }) {
   return (
     <div className="this">
-    <hr/>
     <h1>Projects</h1>
+      <div className="card-container">
        <ProjectsCard
        admin={admin}
        firebaseKey={firebaseKey}
@@ -28,6 +28,7 @@ function Projects({
        setProjects={setProjects}
        projects={projects}
        />
+       </div>
      </div>
   );
 }
