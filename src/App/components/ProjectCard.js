@@ -48,6 +48,7 @@ const ProjectsCard = ({
         key={projectInfo.firebaseKey}>
           <CardBody>
          <CardTitle tag="h5">Project Name: {projectInfo.title}</CardTitle>
+         <hr></hr>
          <CardSubtitle tag="h6" className="mb-2 text-muted">Technologies Used: {projectInfo.technologiesUsed}</CardSubtitle>
          </CardBody>
          <img width="100%" src={projectInfo.screenshot} className="photo" alt="Card image cap" />
