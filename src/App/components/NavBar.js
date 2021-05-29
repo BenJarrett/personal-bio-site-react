@@ -30,9 +30,9 @@ const NavBar = ({ admin }) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
-          { admin && authenticated()}
+          { admin !== null && authenticated()}
             <NavItem>
-              <Link className="nav-link" to="/Home">Home</Link>
+              <Link className="nav-link" to="/">Home</Link>
             </NavItem>
             <NavItem>
               <Link className="nav-link" to="/bio">Bio</Link>
