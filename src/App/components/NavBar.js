@@ -32,7 +32,7 @@ const NavBar = ({ admin }) => {
           <Nav className="ml-auto" navbar>
           { admin && authenticated()}
             <NavItem>
-              <Link className="nav-link" to="/Home">Technologies</Link>
+              <Link className="nav-link" to="/Home">Home</Link>
             </NavItem>
             <NavItem>
               <Link className="nav-link" to="/bio">Bio</Link>

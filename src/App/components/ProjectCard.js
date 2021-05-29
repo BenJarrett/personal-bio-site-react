@@ -55,10 +55,6 @@ const ProjectsCard = ({
          <CardText>Github Url: {projectInfo.githubUrl}</CardText>
          <CardText>Technologies Used: {projectInfo.technologiesUsed}</CardText>
          <img style={{ width: '16rem' }} src={projectInfo.screenshot} className="photo" alt="Card image cap" />
-         <Button style={{ backgroundColor: '#ffa64d' }} onClick={() => handleClick(projectInfo.firebaseKey, 'delete')}>Delete Project</Button>
-      <Button style={{ backgroundColor: '#004d1a' }} onClick={() => handleClick('edit')}>
-        {editing ? 'Close Form' : 'Edit Project'}
-      </Button>
          { admin && editView(projectInfo.firebaseKey) }
          {
          editing && <ProjectsForm

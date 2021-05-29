@@ -30,9 +30,9 @@ export default function Routes({
         />} />
         <Route
         exact path='/projects'
-        admin={admin}
         component={() => <Projects
         projects={projects}
+        admin={admin}
         setProjects={setProjects}
         firebaseKey={firebaseKey}
         githubUrl={githubUrl}
